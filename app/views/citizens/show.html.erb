@@ -30,5 +30,10 @@
   <%= @citizen.phone %>
 </p>
 
+<p>
+  <strong>Status:</strong>
+  <%= @citizen.status %>
+</p>
+
 <%= link_to 'Edit', edit_citizen_path(@citizen) %> |
 <%= link_to 'Back', citizens_path %>

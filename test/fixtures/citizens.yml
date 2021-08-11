@@ -7,6 +7,7 @@ one:
   email: MyString
   birth_date: 2021-08-11
   phone: MyString
+  status: MyString
 
 two:
   name: MyString
@@ -15,3 +16,4 @@ two:
   email: MyString
   birth_date: 2021-08-11
   phone: MyString
+  status: MyString

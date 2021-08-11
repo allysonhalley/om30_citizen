@@ -64,6 +64,6 @@ class CitizensController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def citizen_params
-      params.require(:citizen).permit(:name, :cpf, :cns, :email, :birth_date, :phone)
+      params.require(:citizen).permit(:name, :cpf, :cns, :email, :birth_date, :phone, :status)
     end
 end

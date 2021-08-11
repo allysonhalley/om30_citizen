@@ -20,6 +20,7 @@ class CitizensTest < ApplicationSystemTestCase
     fill_in "Email", with: @citizen.email
     fill_in "Name", with: @citizen.name
     fill_in "Phone", with: @citizen.phone
+    fill_in "Status", with: @citizen.status
     click_on "Create Citizen"
 
     assert_text "Citizen was successfully created"
@@ -36,6 +37,7 @@ class CitizensTest < ApplicationSystemTestCase
     fill_in "Email", with: @citizen.email
     fill_in "Name", with: @citizen.name
     fill_in "Phone", with: @citizen.phone
+    fill_in "Status", with: @citizen.status
     click_on "Update Citizen"
 
     assert_text "Citizen was successfully updated"

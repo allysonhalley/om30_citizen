@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 ####
 # CREATE SCAFFOLDS
-# * rails g scaffold Photo citizen_name:string image_data:jsonb ==>> **this options is used just to a independent entity**
-# rails g scaffold Citizen name:string cpf:string cns:string email:string birth_date:date phone:string
-# rails g migration add_photo_to_citizen photo:text
+# rails g scaffold Photo image_data:text
+# rails g scaffold Citizen name:string cpf:string cns:string email:string birth_date:date phone:string photo:references status:string
+# rails g scaffold Citizen name:string cpf:string cns:string email:string birth_date:date phone:string status:string
+# *rails g migration add_photo_to_citizen photo:text
