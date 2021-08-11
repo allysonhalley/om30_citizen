@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+####
+# CREATE SCAFFOLDS
+# rails g scaffold citizen name:string cpf:string cns:string email:string birth_date:date phone:string 

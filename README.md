@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Requirements
+```
+https://github.com/OM30/desafio-OM30/blob/master/DesafioBackendRuby.md
+```
 
-Things you may want to cover:
+## STEPS
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Check Gemfile:
+```
+Add Shrine to implement images
+https://www.youtube.com/watch?v=jx2CAQrXaMg&t=39s
+https://github.com/shrinerb/shrine/
+```
