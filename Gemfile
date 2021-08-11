@@ -28,8 +28,10 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-#Shriune API to images https://github.com/shrinerb/shrine/
+#Shrine to images https://github.com/shrinerb/shrine/
 gem 'shrine', '~> 3.4'
+# Image processing https://github.com/janko/image_processing/
+gem 'image_processing', '~> 1.12', '>= 1.12.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
