@@ -1,16 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Address, type: :model do
-	### Use this block when u database is blank ###
-	# citizen = Citizen.new(
-	# 	name: Faker::Name.name,
-	# 	cpf: code_string_generator(11),
-	# 	cns: code_string_generator(14),
-	# 	email: Faker::Internet.email,			
-	# 	birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
-	# 	phone: Faker::PhoneNumber.cell_phone,
-	# 	status: ApplicationHelper::STATUSES[:activated]
-	# 	)
 
 	it "0 - Address is ok!" do
 		address = Address.new(
@@ -35,7 +25,7 @@ RSpec.describe Address, type: :model do
 			city: Faker::Address.city,
 			state: Faker::Address.state,
 			complement: Faker::Address.secondary_address,
-			ibge_code: code_string_generator(5)			
+			ibge_code: ApplicationHelper::code_string_generator(5)			
 			)
 		expect(address).to  be_valid
 	end
@@ -49,7 +39,7 @@ RSpec.describe Address, type: :model do
 			city: Faker::Address.city,
 			state: Faker::Address.state,
 			complement: Faker::Address.secondary_address,
-			ibge_code: code_string_generator(5)			
+			ibge_code: ApplicationHelper::code_string_generator(5)			
 			)
 		expect(address).to  be_valid
 	end
@@ -180,4 +170,5 @@ RSpec.describe Address, type: :model do
 		expect(address).to  be_valid
 	end
 	
+
 end
