@@ -1,24 +1,12 @@
 require 'rails_helper'
 
-def input_digits(length_digits)
-	code = ""
-	if length_digits > 0
-		i = 0
-		while length_digits > i do
-			code = code+(rand(0..9).to_s)
-			i += 1
-		end
-	end
-	code
-end
-
 RSpec.describe Citizen, type: :model do
 	
 	it "0 - Citizen is ok!" do
 		citizen = Citizen.new(
 			name: Faker::Name.name,
-			cpf: input_digits(11),
-			cns: input_digits(14),
+			cpf: code_string_generator(11),
+			cns: code_string_generator(14),
 			email: Faker::Internet.email,			
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
@@ -30,8 +18,8 @@ RSpec.describe Citizen, type: :model do
 	it "1 - Name can't be empty!" do
 		citizen = Citizen.new(
 			name: "",
-			cpf: input_digits(11),
-			cns: input_digits(14),
+			cpf: code_string_generator(11),
+			cns: code_string_generator(14),
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
@@ -44,8 +32,8 @@ RSpec.describe Citizen, type: :model do
 	it "2 - Name can't be so short!" do
 		citizen = Citizen.new(
 			name: "AB",
-			cpf: input_digits(11),
-			cns: input_digits(14),
+			cpf: code_string_generator(11),
+			cns: code_string_generator(14),
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
@@ -59,7 +47,7 @@ RSpec.describe Citizen, type: :model do
 		citizen = Citizen.new(
 			name: Faker::Name.name,
 			cpf: "",
-			cns: input_digits(14),
+			cns: code_string_generator(14),
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
@@ -72,8 +60,8 @@ RSpec.describe Citizen, type: :model do
 	it "4 - CPF length must be 11!" do
 		citizen = Citizen.new(
 			name: Faker::Name.name,
-			cpf: input_digits(9),
-			cns: input_digits(14),
+			cpf: code_string_generator(9),
+			cns: code_string_generator(14),
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
@@ -86,8 +74,8 @@ RSpec.describe Citizen, type: :model do
 	it "5 - CNS is not empty!" do
 		citizen = Citizen.new(
 			name: Faker::Name.name,
-			cpf: input_digits(11),
-			cns: input_digits(0),
+			cpf: code_string_generator(11),
+			cns: code_string_generator(0),
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
@@ -100,8 +88,8 @@ RSpec.describe Citizen, type: :model do
 	it "6 - CPF is not empty!" do
 		citizen = Citizen.new(
 			name: Faker::Name.name,
-			cpf: input_digits(11),
-			cns: input_digits(11),
+			cpf: code_string_generator(11),
+			cns: code_string_generator(11),
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
@@ -114,8 +102,8 @@ RSpec.describe Citizen, type: :model do
 	it "7 - Email is not empty!" do
 		citizen = Citizen.new(
 			name: Faker::Name.name,
-			cpf: input_digits(11),
-			cns: input_digits(14),
+			cpf: code_string_generator(11),
+			cns: code_string_generator(14),
 			email: "",
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
@@ -128,8 +116,8 @@ RSpec.describe Citizen, type: :model do
 	it "8 - Email is not valid format!" do
 		citizen = Citizen.new(
 			name: Faker::Name.name,
-			cpf: input_digits(11),
-			cns: input_digits(14),
+			cpf: code_string_generator(11),
+			cns: code_string_generator(14),
 			email: "auauaua@u.s@lala.com",
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
@@ -142,8 +130,8 @@ RSpec.describe Citizen, type: :model do
 	it "9 - Birth Date is not empty!" do
 		citizen = Citizen.new(
 			name: Faker::Name.name,
-			cpf: input_digits(11),
-			cns: input_digits(14),
+			cpf: code_string_generator(11),
+			cns: code_string_generator(14),
 			email: Faker::Internet.email,
 			birth_date: nil,
 			phone: Faker::PhoneNumber.cell_phone,
@@ -156,8 +144,8 @@ RSpec.describe Citizen, type: :model do
 	it "10 - Must be over 18 years old!" do
 		citizen = Citizen.new(
 			name: Faker::Name.name,
-			cpf: input_digits(11),
-			cns: input_digits(14),
+			cpf: code_string_generator(11),
+			cns: code_string_generator(14),
 			email: Faker::Internet.email,
 			birth_date: Date.today - 16.year,
 			phone: Faker::PhoneNumber.cell_phone,
@@ -171,8 +159,8 @@ RSpec.describe Citizen, type: :model do
 	it "11 - Status is not empty!" do
 		citizen = Citizen.new(
 			name: Faker::Name.name,
-			cpf: input_digits(11),
-			cns: input_digits(14),
+			cpf: code_string_generator(11),
+			cns: code_string_generator(14),
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 18, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone
@@ -184,8 +172,8 @@ RSpec.describe Citizen, type: :model do
 	it "12 - Status is not supported!" do
 		citizen = Citizen.new(
 			name: Faker::Name.name,
-			cpf: input_digits(11),
-			cns: input_digits(14),
+			cpf: code_string_generator(11),
+			cns: code_string_generator(14),
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 18, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,

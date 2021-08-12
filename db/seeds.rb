@@ -47,7 +47,7 @@ puts "Created 10 citizens!"
 		street: Faker::Address.street_name,
 		district: Faker::Address.street_name,
 		city: Faker::Address.city,
-		state: Faker::Address.state,
+		state: Faker::Address.state_abbr,
 		complement: Faker::Address.secondary_address,
 		ibge_code: code_string_generator(5)			
 		)

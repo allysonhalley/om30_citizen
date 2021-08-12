@@ -33,5 +33,15 @@ module ApplicationHelper
 		SE: "Sergipe",
 		TO: "Tocantins"
 		}
+
+		def code_string_generator(code_length)
+			code = ""
+			i = 0
+			while code_length > i do
+				code = code+(rand(0..9).to_s)
+				i += 1
+			end
+			code
+		end
 	
 end
