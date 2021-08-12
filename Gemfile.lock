@@ -86,6 +86,8 @@ GEM
     diff-lcs (1.4.4)
     down (5.2.3)
       addressable (~> 2.8)
+    email_validator (2.2.3)
+      activemodel
     erubi (1.10.0)
     ffi (1.15.3)
     globalid (0.5.2)
@@ -239,6 +241,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  email_validator
   faker!
   image_processing (~> 1.12, >= 1.12.1)
   jbuilder (~> 2.7)

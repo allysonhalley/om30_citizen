@@ -1,10 +1,12 @@
 require_relative 'boot'
 
+require 'faker'
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+Faker::Config.locale = 'pt-BR'
 
 module Om30Citizen
   class Application < Rails::Application

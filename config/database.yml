@@ -43,8 +43,8 @@ test:
   encoding: unicode
   database: citizen_test
   pool: 5
-  username: developer
-  password: dev
+  username: tester
+  password: test
 
 production:
   adapter: postgresql
