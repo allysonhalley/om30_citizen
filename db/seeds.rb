@@ -11,6 +11,7 @@
 # rails g scaffold Citizen name:string cpf:string cns:string email:string birth_date:date phone:string photo:references status:string
 # rails g scaffold Citizen name:string cpf:string cns:string email:string birth_date:date phone:string status:string
 # *rails g migration add_photo_to_citizen photo:text
+# rails g scaffold Address cep:string street:string complement:string district:string city:string state:string ibge_code:string citizen:references
 
 def code_string_generator(code_length)
 	code = ""
