@@ -22,10 +22,11 @@ describe Citizen do
 			cpf: input_digits(11),
 			cns: input_digits(14),
 			email: Faker::Internet.email,
+			birth_date: Date.today,
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
 			status: "actived")
-
+		puts citizen.inspect
 		expect(citizen).to  be_valid
 	end
 
@@ -132,4 +133,31 @@ describe Citizen do
 
 		expect(citizen).to  be_valid
 	end
+
+	it "9 - Birth Date is not empty!" do
+		citizen = Citizen.new(
+			name: Faker::Name.name,
+			cpf: input_digits(11),
+			cns: input_digits(14),
+			email: Faker::Internet.email,
+			birth_date: nil,
+			phone: Faker::PhoneNumber.cell_phone,
+			status: "actived")
+		
+		expect(citizen).to  be_valid
+	end
+
+	it "10 - Must be over 18 years old!" do
+		citizen = Citizen.new(
+			name: Faker::Name.name,
+			cpf: input_digits(11),
+			cns: input_digits(14),
+			email: Faker::Internet.email,
+			birth_date: Date.today - 16.year,
+			phone: Faker::PhoneNumber.cell_phone,
+			status: "actived")
+		puts citizen.inspect
+		expect(citizen).to  be_valid
+	end
+
 end

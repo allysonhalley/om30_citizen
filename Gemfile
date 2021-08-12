@@ -35,6 +35,7 @@ gem 'shrine', '~> 3.4'
 # Image processing https://github.com/janko/image_processing/
 gem 'image_processing', '~> 1.12', '>= 1.12.1'
 
+# Validators
 # An email validator for Rails 3+.
 gem 'email_validator', require: 'email_validator/strict'
 
