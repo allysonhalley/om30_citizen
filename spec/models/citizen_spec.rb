@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 def input_digits(length_digits)
 	code = ""
 	if length_digits > 0
@@ -21,12 +20,11 @@ describe Citizen do
 			name: Faker::Name.name,
 			cpf: input_digits(11),
 			cns: input_digits(14),
-			email: Faker::Internet.email,
-			birth_date: Date.today,
+			email: Faker::Internet.email,			
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
-			status: "actived")
-		puts citizen.inspect
+			status: ApplicationHelper::STATUSES[:activated]
+			)
 		expect(citizen).to  be_valid
 	end
 
@@ -38,7 +36,8 @@ describe Citizen do
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
-			status: "actived")
+			status: ApplicationHelper::STATUSES[:activated]
+			)
 
 		expect(citizen).to  be_valid
 	end
@@ -51,7 +50,8 @@ describe Citizen do
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
-			status: "actived")
+			status: ApplicationHelper::STATUSES[:activated]
+			)
 
 		expect(citizen).to  be_valid
 	end
@@ -64,7 +64,8 @@ describe Citizen do
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
-			status: "actived")
+			status: ApplicationHelper::STATUSES[:activated]
+			)
 
 		expect(citizen).to  be_valid
 	end
@@ -77,7 +78,8 @@ describe Citizen do
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
-			status: "actived")
+			status: ApplicationHelper::STATUSES[:activated]
+			)
 
 		expect(citizen).to  be_valid
 	end
@@ -90,7 +92,8 @@ describe Citizen do
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
-			status: "actived")
+			status: ApplicationHelper::STATUSES[:activated]
+			)
 
 		expect(citizen).to  be_valid
 	end
@@ -103,7 +106,8 @@ describe Citizen do
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
-			status: "actived")
+			status: ApplicationHelper::STATUSES[:activated]
+			)
 
 		expect(citizen).to  be_valid
 	end
@@ -116,7 +120,8 @@ describe Citizen do
 			email: "",
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
-			status: "actived")
+			status: ApplicationHelper::STATUSES[:activated]
+			)
 
 		expect(citizen).to  be_valid
 	end
@@ -129,7 +134,8 @@ describe Citizen do
 			email: "auauaua@u.s@lala.com",
 			birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
-			status: "actived")
+			status: ApplicationHelper::STATUSES[:activated]
+			)
 
 		expect(citizen).to  be_valid
 	end
@@ -142,7 +148,8 @@ describe Citizen do
 			email: Faker::Internet.email,
 			birth_date: nil,
 			phone: Faker::PhoneNumber.cell_phone,
-			status: "actived")
+			status: ApplicationHelper::STATUSES[:activated]
+			)
 		
 		expect(citizen).to  be_valid
 	end
@@ -155,8 +162,24 @@ describe Citizen do
 			email: Faker::Internet.email,
 			birth_date: Date.today - 16.year,
 			phone: Faker::PhoneNumber.cell_phone,
-			status: "actived")
-		puts citizen.inspect
+			status: ApplicationHelper::STATUSES[:activated]
+			)
+
+		expect(citizen).to  be_valid
+	end
+
+		
+	it "11 - Status is activad when initialize!" do
+		citizen = Citizen.new(
+			name: Faker::Name.name,
+			cpf: input_digits(11),
+			cns: input_digits(14),
+			email: Faker::Internet.email,
+			birth_date: Faker::Date.birthday(min_age: 18, max_age: 120),
+			phone: Faker::PhoneNumber.cell_phone,
+			status: ApplicationHelper::STATUSES[:activated]
+			)		
+
 		expect(citizen).to  be_valid
 	end
 
