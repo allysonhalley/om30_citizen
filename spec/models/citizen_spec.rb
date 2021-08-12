@@ -169,7 +169,20 @@ describe Citizen do
 	end
 
 		
-	it "11 - Status is activad when initialize!" do
+	it "11 - Status is not empty!" do
+		citizen = Citizen.new(
+			name: Faker::Name.name,
+			cpf: input_digits(11),
+			cns: input_digits(14),
+			email: Faker::Internet.email,
+			birth_date: Faker::Date.birthday(min_age: 18, max_age: 120),
+			phone: Faker::PhoneNumber.cell_phone
+			)		
+
+		expect(citizen).to  be_valid
+	end
+
+	it "12 - Status is not supported!" do
 		citizen = Citizen.new(
 			name: Faker::Name.name,
 			cpf: input_digits(11),
@@ -177,7 +190,7 @@ describe Citizen do
 			email: Faker::Internet.email,
 			birth_date: Faker::Date.birthday(min_age: 18, max_age: 120),
 			phone: Faker::PhoneNumber.cell_phone,
-			status: ApplicationHelper::STATUSES[:activated]
+			status: "test"
 			)		
 
 		expect(citizen).to  be_valid
