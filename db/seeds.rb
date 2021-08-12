@@ -23,6 +23,7 @@ def code_string_generator(code_length)
 	code
 end
 
+### Seed Citizen ###
 10.times do |i|
 	
 	Citizen.create!(
@@ -32,9 +33,23 @@ end
 		email: Faker::Internet.email,
 		birth_date: Faker::Date.birthday(min_age: 16, max_age: 120),
 		phone: Faker::PhoneNumber.cell_phone,
-		status: "actived"
+		status: "activated"
 	)
-
 end
-
 puts "Created 10 citizens!"
+
+### Seed Address ###
+10.times do |i|
+	ctzn = Citizen.find(Citizen.ids.sample)
+	address = Address.create!(
+		citizen: ctzn,
+		postcode: Faker::Address.postcode,
+		street: Faker::Address.street_name,
+		district: Faker::Address.street_name,
+		city: Faker::Address.city,
+		state: Faker::Address.state,
+		complement: Faker::Address.secondary_address,
+		ibge_code: code_string_generator(5)			
+		)
+end
+puts "Created 10 addresses!"

@@ -4,7 +4,7 @@ module ApplicationHelper
 		desactivated: "desativated",
 		undefine: "undefine"
 	}
-	BR_STATES: {
+	BR_STATES = {
 		AC: "Acre",
 		AL: "Alagoas",
 		AP: "Amapá",

@@ -12,8 +12,7 @@ def input_digits(length_digits)
 	code
 end
 
-
-describe Citizen do
+RSpec.describe Citizen, type: :model do
 	
 	it "0 - Citizen is ok!" do
 		citizen = Citizen.new(
